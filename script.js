@@ -1,23 +1,73 @@
-document.getElementById('surpriseBtn').addEventListener('click', function() {
-  document.getElementById('surpriseText').style.display = 'block';
-});
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
-// Countdown Timer - Set to January 15th, 2026
-const nextReunionDate = new Date("2026-01-15T00:00:00").getTime();
+.card {
+  background: white;
+  padding: 30px;
+  max-width: 360px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  display: none;
+}
 
-let countdownFunction = setInterval(function() {
-  let now = new Date().getTime();
-  let distance = nextReunionDate - now;
+.card.active {
+  display: block;
+}
 
-  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+h1 {
+  color: #ff5e8a;
+}
 
-  document.getElementById("timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+}
 
-  if (distance < 0) {
-    clearInterval(countdownFunction);
-    document.getElementById("timer").innerHTML = "It's time to be together! 🎉";
-  }
-}, 1000);
+button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  background: #ff5e8a;
+  color: white;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.fade {
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Floating hearts */
+.hearts::before {
+  content: "💖 💕 💗 💘 💞";
+  position: absolute;
+  animation: float 10s linear infinite;
+  font-size: 2rem;
+  opacity: 0.6;
+}
+
+@keyframes float {
+  0% { top: 100%; left: 10%; }
+  100% { top: -20%; left: 80%; }
+}
