@@ -1,65 +1,10 @@
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f7f7f7;
-  color: #333;
-  text-align: center;
-  margin: 0;
-}
+let current = 0;
+const cards = document.querySelectorAll('.card');
 
-header {
-  background-color: #ff79c6;
-  color: white;
-  padding: 20px;
-}
-
-h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-#subheading {
-  font-size: 1.5rem;
-  margin-top: 0;
-}
-
-#surprise {
-  margin-top: 40px;
-}
-
-button {
-  background-color: #ff6f61;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
-button:hover {
-  background-color: #ff5243;
-}
-
-#countdown {
-  margin-top: 40px;
-  background-color: #fff0f5;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-#quotes {
-  margin-top: 40px;
-}
-
-footer {
-  background-color: #ff79c6;
-  color: white;
-  padding: 20px;
-  margin-top: 40px;
-}
-
-#timer {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #ff6f61;
+function nextCard() {
+  cards[current].classList.remove('active');
+  current++;
+  if (current < cards.length) {
+    cards[current].classList.add('active');
+  }
 }
