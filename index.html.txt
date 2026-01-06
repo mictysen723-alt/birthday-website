@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Love, Always and Forever 💖</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Happy Birthday, My Love! 🎂💖</h1>
+    <p id="subheading">Even though we're miles apart, my love for you grows stronger each day. You're always in my heart! ❤️</p>
+  </header>
+
+  <section id="surprise">
+    <h2>First Surprise 🎁</h2>
+    <p>Click below to read my special message just for you! 💌</p>
+    <button id="surpriseBtn">Reveal My Love</button>
+    <p id="surpriseText" style="display:none;">💖 I wish I will marry you one day, Lia. You are my heart and soul, and I can't wait for the day we're together forever. 🥰</p>
+  </section>
+
+  <section id="countdown">
+    <h2>Countdown to Our Next Moment Together ⏳</h2>
+    <p>Every day apart is one step closer to being in each other’s arms. I can’t wait for our next reunion! ❤️</p>
+    <div id="timer"></div>
+  </section>
+
+  <section id="quotes">
+    <h2>Sweet Quotes Just for You 💖</h2>
+    <p>"I love you to the moon and back, and even more every day." 🌙</p>
+    <p>"No matter the distance, you are always close in my heart." 💌</p>
+    <p>"Every minute without you feels like forever, but I’m holding on to the moments we’ll create together." ⏳</p>
+  </section>
+
+  <footer>
+    <p>Made with all my love, forever and always. ❤️</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
