@@ -2,40 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>For You, Always 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For My Love, Always and Forever 💖</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Happy Birthday, My Love! 🎂💖</h1>
-    <p id="subheading">Even though we're miles apart, my love for you grows stronger each day. You're always in my heart! ❤️</p>
-  </header>
 
-  <section id="surprise">
-    <h2>First Surprise 🎁</h2>
-    <p>Click below to read my special message just for you! 💌</p>
-    <button id="surpriseBtn">Reveal My Love</button>
-    <p id="surpriseText" style="display:none;">💖 I wish I will marry you one day, Lia. You are my heart and soul, and I can't wait for the day we're together forever. 🥰</p>
-  </section>
+<div class="card fade active">
+  <h1>Hey My Love 💕</h1>
+  <p>
+    Even though miles separate us, my heart somehow always finds its way back to you.
+  </p>
+  <button onclick="nextCard()">Continue ➜</button>
+</div>
 
-  <section id="countdown">
-    <h2>Countdown to Our Next Moment Together ⏳</h2>
-    <p>Every day apart is one step closer to being in each other’s arms. I can’t wait for our next reunion! ❤️</p>
-    <div id="timer"></div>
-  </section>
+<div class="card fade">
+  <h1>Long Distance Isn’t Easy 🌍</h1>
+  <p>
+    Some nights I miss you a little too much.<br>
+    But loving you makes every second worth it.
+  </p>
+  <button onclick="nextCard()">Next 💌</button>
+</div>
 
-  <section id="quotes">
-    <h2>Sweet Quotes Just for You 💖</h2>
-    <p>"I love you to the moon and back, and even more every day." 🌙</p>
-    <p>"No matter the distance, you are always close in my heart." 💌</p>
-    <p>"Every minute without you feels like forever, but I’m holding on to the moments we’ll create together." ⏳</p>
-  </section>
+<div class="card fade">
+  <h1>Why You’re Special ✨</h1>
+  <p>
+    Your smile fixes my worst days.<br>
+    Your voice feels like home.<br>
+    And your love… it changed me.
+  </p>
+  <button onclick="nextCard()">One More 💖</button>
+</div>
 
-  <footer>
-    <p>Made with all my love, forever and always. ❤️</p>
-  </footer>
+<div class="card fade">
+  <h1>A Promise 🤍</h1>
+  <p>
+    I promise to choose you, every day.<br>
+    No distance. No time. No fear.
+  </p>
+  <button onclick="nextCard()">Final Surprise 🎁</button>
+</div>
 
-  <script src="script.js"></script>
+<div class="card fade">
+  <h1>Happy Birthday 🎂💞</h1>
+  <p>
+    One day, this distance will be just a memory.<br>
+    And I’ll finally get to hold you instead of missing you.
+    <br><br>
+    I love you. Always.
+  </p>
+</div>
+
+<div class="hearts"></div>
+
+<script src="script.js"></script>
 </body>
 </html>
