@@ -1,10 +1,62 @@
-let current = 0;
-const cards = document.querySelectorAll('.card');
+* {
+  box-sizing: border-box;
+}
 
-function nextCard() {
-  cards[current].classList.remove('active');
-  current++;
-  if (current < cards.length) {
-    cards[current].classList.add('active');
-  }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #0f0f14;
+  color: white;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  width: 500vw;
+  height: 100vh;
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.slide {
+  width: 100vw;
+  height: 100vh;
+  padding: 80px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 2.6rem;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  opacity: 0.85;
+  max-width: 420px;
+}
+
+button {
+  margin-top: 40px;
+  align-self: flex-start;
+  background: linear-gradient(135deg, #ff5ea8, #ff7eb3);
+  border: none;
+  color: white;
+  padding: 14px 36px;
+  font-size: 1rem;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 94, 168, 0.4);
+}
+
+.final p {
+  font-size: 1.25rem;
 }
