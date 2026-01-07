@@ -5,16 +5,17 @@
 body {
   margin: 0;
   font-family: 'Inter', system-ui, sans-serif;
-  background: #0f0f14;
+  background: radial-gradient(circle at top, #1b1b2f, #0f0f14);
   color: white;
   overflow: hidden;
 }
 
+/* Slider */
 .slider {
   display: flex;
   width: 500vw;
   height: 100vh;
-  transition: transform 0.8s cubic-bezier(0.77, 0, 0.18, 1);
+  transition: transform 1s cubic-bezier(0.77, 0, 0.18, 1);
 }
 
 .slide {
@@ -26,6 +27,11 @@ body {
   justify-content: center;
 }
 
+.locked {
+  opacity: 0;
+}
+
+/* Text */
 h1 {
   font-size: 2.6rem;
   margin-bottom: 20px;
@@ -39,6 +45,7 @@ p {
   max-width: 420px;
 }
 
+/* Button */
 button {
   margin-top: 40px;
   align-self: flex-start;
@@ -54,9 +61,30 @@ button {
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(255, 94, 168, 0.4);
+  box-shadow: 0 12px 30px rgba(255, 94, 168, 0.45);
 }
 
-.final p {
-  font-size: 1.25rem;
+/* Text animations */
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards;
+}
+
+.delay {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Canvas */
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
 }
