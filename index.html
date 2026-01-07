@@ -8,51 +8,58 @@
 </head>
 <body>
 
+<!-- Background particles -->
+<canvas id="particles"></canvas>
+
+<!-- Music -->
+<audio id="bgMusic" src="music.mp3" loop></audio>
+
 <div class="slider">
   <section class="slide active">
-    <h1>Happy Birthday, Madam Ji 🎂</h1>
-    <p>
-      Today isn’t just your birthday.<br>
-      It’s the day the world got a little more beautiful.
+    <h1 class="animate">Happy Birthday, Madam Ji 🎂</h1>
+    <p class="animate delay">
+      Today isn’t ordinary.<br>
+      It’s the day my favorite person was born.
+    </p>
+    <button onclick="next()">Begin</button>
+  </section>
+
+  <section class="slide">
+    <h1 class="animate">Us, From Afar 🌍</h1>
+    <p class="animate delay">
+      Different cities.<br>
+      Different time zones.<br>
+      One heart that refuses to give up.
     </p>
     <button onclick="next()">Continue</button>
   </section>
 
   <section class="slide">
-    <h1>About Us 🌍</h1>
-    <p>
-      Miles separate us.<br>
-      Time tests us.<br>
-      But love… love stays undefeated.
-    </p>
-    <button onclick="next()">Next</button>
-  </section>
-
-  <section class="slide">
-    <h1>You, Madam Ji ✨</h1>
-    <p>
-      You are calm in my chaos.<br>
-      Strength in my weakness.<br>
-      And home — even from far away.
+    <h1 class="animate">Madam Ji ✨</h1>
+    <p class="animate delay">
+      You are peace when my mind is loud.<br>
+      Strength when I feel weak.<br>
+      Home — without being near.
     </p>
     <button onclick="next()">Go On</button>
   </section>
 
   <section class="slide">
-    <h1>A Promise 🤍</h1>
-    <p>
-      One day, this distance will disappear.<br>
-      And I’ll say all this while holding your hands.
+    <h1 class="animate">A Promise 🤍</h1>
+    <p class="animate delay">
+      One day, I won’t count days anymore.<br>
+      I’ll count memories — with you.
     </p>
-    <button onclick="next()">Almost There</button>
+    <button onclick="unlock()">Final Surprise</button>
   </section>
 
-  <section class="slide final">
-    <h1>Always Yours, Madam Ji 💞</h1>
-    <p>
-      Until that day comes…<br>
-      I choose you.<br>
-      Every day. Every version of me.
+  <section class="slide locked">
+    <h1 class="animate">Always You, Madam Ji 💞</h1>
+    <p class="animate delay">
+      Until distance turns into stories we laugh about…<br>
+      I choose you.<br><br>
+      Happy Birthday.<br>
+      Forever starts with us.
     </p>
   </section>
 </div>
