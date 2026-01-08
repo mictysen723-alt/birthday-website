@@ -17,19 +17,12 @@ function answer(choice) {
   const response = document.getElementById("response");
   const messages = {
     1: "Even a simple yes from you means more to me than you know.",
-    2: "That certainty in your heart makes me feel so safe with you.",
-    3: "Absolutely — that confidence touches my heart deeply.",
-    4: "Yes, like crazy ❤️\n\nThat’s the kind of love that makes distance feel temporary."
+    2: "That certainty in your heart makes me feel safe with you.",
+    3: "Your confidence in us touches my heart deeply.",
+    4: "That kind of love makes distance feel temporary ❤️"
   };
   response.textContent = messages[choice];
   response.style.opacity = 1;
-}
-
-function reply() {
-  const text = encodeURIComponent(
-    "I saw your birthday website 🥺❤️ It made me smile so much."
-  );
-  window.open(`https://wa.me/1234567890?text=${text}`, "_blank");
 }
 
 function restart() {
