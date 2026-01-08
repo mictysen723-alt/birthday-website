@@ -2,7 +2,9 @@ let index = 0;
 const slider = document.querySelector('.slider');
 const music = document.getElementById('bgMusic');
 
-function next() {
+/* SLIDE NAV */
+function next(e) {
+  heartBurst(e);
   index++;
   slider.style.transform = `translateX(-${index * 100}vw)`;
 
@@ -13,28 +15,45 @@ function next() {
   }
 }
 
-function answer(choice) {
+/* ANSWERS */
+function answer(choice, e) {
+  heartBurst(e);
   const response = document.getElementById("response");
   const messages = {
     1: "Even a simple yes from you means more to me than you know.",
-    2: "That certainty in your heart makes me feel so safe with you.",
-    3: "Absolutely — that confidence touches my heart deeply.",
-    4: "Yes, like crazy ❤️\n\nThat’s the kind of love that makes distance feel temporary."
+    2: "That certainty makes my heart feel safe.",
+    3: "Absolutely… that confidence touches me deeply.",
+    4: "Yes, like crazy ❤️ — that kind of love is rare."
   };
   response.textContent = messages[choice];
   response.style.opacity = 1;
 }
 
-/* REPLY BUTTON */
-function reply() {
-  const text = encodeURIComponent(
-    "I saw your birthday website 🥺❤️\nIt made me smile so much.\nHappy Birthday message received 💌"
-  );
-
-  // CHANGE THIS NUMBER TO YOUR OWN (with country code)
-  window.open(`https://wa.me/1234567890?text=${text}`, "_blank");
+/* INSTAGRAM REPLY */
+function reply(e) {
+  heartBurst(e);
+  window.open("https://www.instagram.com/shivam_bharti_723/", "_blank");
 }
 
+/* HEART BURST ANIMATION */
+function heartBurst(e) {
+  const x = e.clientX;
+  const y = e.clientY;
+
+  for (let i = 0; i < 8; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = x + "px";
+    heart.style.top = y + "px";
+    heart.style.animationDelay = `${Math.random() * 0.3}s`;
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 1200);
+  }
+}
+
+/* MUSIC FADE */
 function fadeInMusic() {
   let v = 0;
   const fade = setInterval(() => {
@@ -45,13 +64,13 @@ function fadeInMusic() {
   }, 200);
 }
 
-/* Background particles */
+/* PARTICLES */
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
-const dots = Array.from({ length: 45 }, () => ({
+const dots = Array.from({ length: 40 }, () => ({
   x: Math.random() * canvas.width,
   y: Math.random() * canvas.height,
   r: Math.random() * 2 + 0.5,
