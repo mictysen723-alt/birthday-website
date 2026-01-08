@@ -25,6 +25,16 @@ function answer(choice) {
   response.style.opacity = 1;
 }
 
+/* REPLY BUTTON */
+function reply() {
+  const text = encodeURIComponent(
+    "I saw your birthday website 🥺❤️\nIt made me smile so much.\nHappy Birthday message received 💌"
+  );
+
+  // CHANGE THIS NUMBER TO YOUR OWN (with country code)
+  window.open(`https://wa.me/1234567890?text=${text}`, "_blank");
+}
+
 function fadeInMusic() {
   let v = 0;
   const fade = setInterval(() => {
