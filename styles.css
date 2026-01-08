@@ -130,3 +130,15 @@ button:hover {
   inset: 0;
   z-index: -1;
 }
+
+.reply-btn {
+  margin-top: 25px;
+  background: transparent;
+  border: 2px solid #ff7eb3;
+  color: #ffb6d9;
+}
+
+.reply-btn:hover {
+  background: #ff7eb3;
+  color: white;
+}
