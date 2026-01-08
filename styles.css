@@ -23,18 +23,6 @@ body {
   justify-content: center;
 }
 
-h1 {
-  font-size: 2.4rem;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  max-width: 460px;
-  opacity: 0.9;
-}
-
 button {
   margin-top: 40px;
   background: linear-gradient(135deg, #ff5ea8, #ff7eb3);
@@ -44,101 +32,38 @@ button {
   font-size: 1rem;
   border-radius: 40px;
   cursor: pointer;
-  width: fit-content;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(255,94,168,0.45);
+/* HEARTS */
+.heart {
+  position: fixed;
+  font-size: 22px;
+  pointer-events: none;
+  animation: floatHeart 1.2s ease forwards;
 }
 
-/* Photo slide */
-.photo-wrap {
-  display: flex;
-  gap: 28px;
-  align-items: center;
-  margin-top: 20px;
-  flex-wrap: wrap;
+@keyframes floatHeart {
+  0% {
+    transform: translate(0,0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(
+      calc(-40px + 80px * var(--rand, 0.5)),
+      -120px
+    ) scale(1.6);
+    opacity: 0;
+  }
 }
 
-.photo {
-  width: 220px;
-  border-radius: 18px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  animation: photoZoom 6s ease-in-out infinite;
-}
-
-@keyframes photoZoom {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-.photo-text {
-  max-width: 260px;
-}
-
-.eyes {
-  font-family: 'Georgia', serif;
-  color: #ffd9ea;
-  margin-bottom: 12px;
-}
-
-.face {
-  font-style: italic;
-  color: #ffe6f1;
-  margin-bottom: 12px;
-}
-
-.presence {
-  font-family: 'Courier New', monospace;
+.reply-btn {
+  background: transparent;
+  border: 2px solid #ff7eb3;
   color: #ffb6d9;
-}
-
-/* Question slide */
-.options {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.response {
-  margin-top: 30px;
-  font-size: 1.1rem;
-  color: #ffd1e8;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
-/* Animations */
-.animate {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 1s forwards;
-}
-
-.delay { animation-delay: 0.3s; }
-.delay2 { animation-delay: 0.6s; }
-
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
 }
 
 #particles {
   position: fixed;
   inset: 0;
   z-index: -1;
-}
-
-.reply-btn {
-  margin-top: 25px;
-  background: transparent;
-  border: 2px solid #ff7eb3;
-  color: #ffb6d9;
-}
-
-.reply-btn:hover {
-  background: #ff7eb3;
-  color: white;
 }
