@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: Arial, sans-serif;
   background: radial-gradient(circle at top, #1b1b2f, #0f0f14);
   color: white;
   overflow: hidden;
@@ -10,58 +10,84 @@ body {
 
 .slider {
   display: flex;
-  width: 700vw;
+  width: 600vw;
   height: 100vh;
-  transition: transform 1s cubic-bezier(0.77, 0, 0.18, 1);
+  transition: transform 1s ease;
 }
 
 .slide {
   width: 100vw;
-  padding: 90px 32px;
+  padding: 80px 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+h1 {
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 480px;
+}
+
 button {
-  margin-top: 40px;
-  background: linear-gradient(135deg, #ff5ea8, #ff7eb3);
-  border: none;
-  color: white;
+  margin-top: 30px;
   padding: 14px 36px;
   font-size: 1rem;
+  border: none;
   border-radius: 40px;
+  background: linear-gradient(135deg, #ff5ea8, #ff7eb3);
+  color: white;
   cursor: pointer;
 }
 
-/* HEARTS */
-.heart {
-  position: fixed;
-  font-size: 22px;
-  pointer-events: none;
-  animation: floatHeart 1.2s ease forwards;
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-@keyframes floatHeart {
-  0% {
-    transform: translate(0,0) scale(1);
-    opacity: 1;
+.final-btn {
+  background: transparent;
+  border: 2px solid #ff7eb3;
+}
+
+/* HEART TRANSITION */
+.big-heart {
+  position: fixed;
+  font-size: 40px;
+  transform: translate(-50%, -50%) scale(0);
+  animation: growHeart 0.9s forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes growHeart {
+  to {
+    transform: translate(-50%, -50%) scale(6);
   }
-  100% {
-    transform: translate(
-      calc(-40px + 80px * var(--rand, 0.5)),
-      -120px
-    ) scale(1.6);
+}
+
+.heart {
+  position: fixed;
+  font-size: 20px;
+  animation: burst 1.2s forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes burst {
+  to {
+    transform: translate(var(--dx), var(--dy)) scale(1.3);
     opacity: 0;
   }
 }
 
-.reply-btn {
-  background: transparent;
-  border: 2px solid #ff7eb3;
-  color: #ffb6d9;
-}
-
+/* PARTICLES */
 #particles {
   position: fixed;
   inset: 0;
