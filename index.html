@@ -16,7 +16,10 @@
   <!-- SLIDE 1 -->
   <section class="slide">
     <h1>Happy Birthday, Madam Ji 🎂</h1>
-    <p>The world became brighter the day you were born.</p>
+    <p>
+      Today is special…<br>
+      because the world became brighter the day you were born.
+    </p>
     <button onclick="next(event)">Start</button>
   </section>
 
@@ -25,7 +28,8 @@
     <h1>Something From My Heart 🌷</h1>
     <p>
       LIA, you are calm, kind, and deeply genuine.<br><br>
-      Being loved by you feels safe.
+      Being loved by you feels safe.<br>
+      Being understood by you feels rare.
     </p>
     <button onclick="next(event)">Continue</button>
   </section>
@@ -34,10 +38,35 @@
   <section class="slide">
     <h1>About This Distance 🌍</h1>
     <p>
+      Long distance isn’t easy.<br>
       Some days I miss you quietly.<br><br>
-      Yet you are always close to my heart.
+      Yet even from miles away,<br>
+      you still feel close to my heart.
     </p>
     <button onclick="next(event)">Next</button>
+  </section>
+
+  <!-- PHOTO SLIDE (RESTORED) -->
+  <section class="slide photo-slide">
+    <h1>LIA 🤍</h1>
+
+    <div class="photo-wrap">
+      <img src="lia.jpg" class="photo"/>
+
+      <div class="photo-text">
+        <p class="eyes">
+          Your eyes hold a softness that calms everything.
+        </p>
+        <p class="face">
+          Your face carries such effortless grace.
+        </p>
+        <p class="presence">
+          Your presence stays with me, even from far away.
+        </p>
+      </div>
+    </div>
+
+    <button onclick="next(event)">Continue</button>
   </section>
 
   <!-- QUESTION SLIDE -->
@@ -46,31 +75,35 @@
     <p>Do you really love me, LIA?</p>
 
     <div class="options">
-      <button onclick="answer(event)">Yes ❤️</button>
-      <button onclick="answer(event)">Of course</button>
-      <button onclick="answer(event)">Absolutely</button>
-      <button onclick="answer(event)">Yes, like crazy 💖</button>
+      <button onclick="answer(1)">Yes</button>
+      <button onclick="answer(2)">Of course</button>
+      <button onclick="answer(3)">Absolutely</button>
+      <button onclick="answer(4)">Yes, like crazy ❤️</button>
     </div>
 
-    <!-- IMPORTANT BUTTON -->
+    <!-- MESSAGE APPEARS -->
+    <p id="response" class="response"></p>
+
+    <!-- BUTTON TO FINAL SLIDE -->
     <button class="final-btn" onclick="goFinal(event)">
       Go to Final Message ❤️
     </button>
   </section>
 
-  <!-- FINAL SLIDE (LAST SLIDE) -->
+  <!-- FINAL SLIDE -->
   <section class="slide final">
     <h1>I Love You, LIA ❤️</h1>
     <p>
-      Happy Birthday, Madam Ji 🎂<br><br>
-      Not just today,<br>
-      but in all the days ahead.<br><br>
+      Not just today.<br>
+      Not just on your birthday.<br><br>
+      But in all the quiet moments,<br>
+      in all the distance,<br>
+      and in all the days ahead.<br><br>
+      Happy Birthday, Madam Ji 🎂<br>
       You will always be my favorite person.
     </p>
 
-    <button onclick="openInsta(event)">
-      Open Instagram 💌
-    </button>
+    <button onclick="openInsta(event)">Open Instagram 💌</button>
   </section>
 
 </div>
