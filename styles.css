@@ -2,53 +2,55 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   background: radial-gradient(circle at top, #1b1b2f, #0f0f14);
   color: white;
   overflow: hidden;
 }
 
+/* SLIDER */
 .slider {
   display: flex;
   width: 600vw;
   height: 100vh;
-  transition: transform 1s ease;
+  transition: transform 1.2s ease-in-out;
 }
 
 .slide {
   width: 100vw;
-  padding: 80px 32px;
+  padding: 90px 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+/* TEXT */
 h1 {
-  font-size: 2.3rem;
+  font-size: 2.4rem;
   margin-bottom: 20px;
 }
 
 p {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1.15rem;
+  line-height: 1.8;
   max-width: 480px;
 }
 
+/* BUTTONS */
 button {
-  margin-top: 30px;
+  margin-top: 40px;
+  background: linear-gradient(135deg, #ff5ea8, #ff7eb3);
+  border: none;
+  color: white;
   padding: 14px 36px;
   font-size: 1rem;
-  border: none;
   border-radius: 40px;
-  background: linear-gradient(135deg, #ff5ea8, #ff7eb3);
-  color: white;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.options {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+button:hover {
+  transform: translateY(-2px);
 }
 
 .final-btn {
@@ -56,33 +58,72 @@ button {
   border: 2px solid #ff7eb3;
 }
 
-/* HEART TRANSITION */
-.big-heart {
+/* PHOTO SLIDE */
+.photo-wrap {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.photo {
+  width: 220px;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.photo-text {
+  max-width: 260px;
+}
+
+.eyes { color: #ffd9ea; }
+.face { font-style: italic; color: #ffe6f1; }
+.presence { font-family: monospace; color: #ffb6d9; }
+
+/* QUESTION */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.response {
+  margin-top: 30px;
+  font-size: 1.1rem;
+  color: #ffd1e8;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+/* ROMANTIC TRANSITION */
+.fade-overlay {
   position: fixed;
-  font-size: 40px;
-  transform: translate(-50%, -50%) scale(0);
-  animation: growHeart 0.9s forwards;
+  inset: 0;
+  background: rgba(255,126,179,0.15);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.8s ease;
   pointer-events: none;
   z-index: 9999;
 }
 
-@keyframes growHeart {
-  to {
-    transform: translate(-50%, -50%) scale(6);
-  }
+.fade-overlay.active {
+  opacity: 1;
 }
 
-.heart {
+/* FLOATING HEARTS */
+.soft-heart {
   position: fixed;
-  font-size: 20px;
-  animation: burst 1.2s forwards;
+  font-size: 18px;
+  opacity: 0.7;
+  animation: floatUp 2s ease forwards;
   pointer-events: none;
-  z-index: 9999;
 }
 
-@keyframes burst {
+@keyframes floatUp {
   to {
-    transform: translate(var(--dx), var(--dy)) scale(1.3);
+    transform: translateY(-120px) scale(1.3);
     opacity: 0;
   }
 }
