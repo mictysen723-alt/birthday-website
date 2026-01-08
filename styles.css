@@ -8,12 +8,11 @@ body {
   overflow: hidden;
 }
 
-/* SLIDER */
 .slider {
   display: flex;
-  width: 600vw;
+  width: 800vw;
   height: 100vh;
-  transition: transform 1.2s ease-in-out;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.18, 1);
 }
 
 .slide {
@@ -24,7 +23,6 @@ body {
   justify-content: center;
 }
 
-/* TEXT */
 h1 {
   font-size: 2.4rem;
   margin-bottom: 20px;
@@ -33,10 +31,10 @@ h1 {
 p {
   font-size: 1.15rem;
   line-height: 1.8;
-  max-width: 480px;
+  max-width: 460px;
+  opacity: 0.9;
 }
 
-/* BUTTONS */
 button {
   margin-top: 40px;
   background: linear-gradient(135deg, #ff5ea8, #ff7eb3);
@@ -46,19 +44,16 @@ button {
   font-size: 1rem;
   border-radius: 40px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  width: fit-content;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 button:hover {
   transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(255,94,168,0.45);
 }
 
-.final-btn {
-  background: transparent;
-  border: 2px solid #ff7eb3;
-}
-
-/* PHOTO SLIDE */
+/* Photo */
 .photo-wrap {
   display: flex;
   gap: 28px;
@@ -71,17 +66,35 @@ button:hover {
   width: 220px;
   border-radius: 18px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  animation: photoZoom 6s ease-in-out infinite;
 }
 
-.photo-text {
-  max-width: 260px;
+@keyframes photoZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
-.eyes { color: #ffd9ea; }
-.face { font-style: italic; color: #ffe6f1; }
-.presence { font-family: monospace; color: #ffb6d9; }
+.photo-text { max-width: 260px; }
 
-/* QUESTION */
+.eyes {
+  font-family: Georgia, serif;
+  color: #ffd9ea;
+  margin-bottom: 12px;
+}
+
+.face {
+  font-style: italic;
+  color: #ffe6f1;
+  margin-bottom: 12px;
+}
+
+.presence {
+  font-family: "Courier New", monospace;
+  color: #ffb6d9;
+}
+
+/* Question */
 .options {
   display: flex;
   flex-direction: column;
@@ -96,41 +109,59 @@ button:hover {
   transition: opacity 0.6s ease;
 }
 
-/* ROMANTIC TRANSITION */
-.fade-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(255,126,179,0.15);
-  backdrop-filter: blur(6px);
-  opacity: 0;
-  transition: opacity 0.8s ease;
-  pointer-events: none;
-  z-index: 9999;
+.reply-btn {
+  margin-top: 25px;
+  background: transparent;
+  border: 2px solid #ff7eb3;
+  color: #ffb6d9;
 }
 
-.fade-overlay.active {
-  opacity: 1;
+.reply-btn:hover {
+  background: #ff7eb3;
+  color: white;
 }
 
-/* FLOATING HEARTS */
-.soft-heart {
-  position: fixed;
-  font-size: 18px;
+/* Final extras */
+.exclusive {
+  display: block;
+  margin-top: 25px;
+  font-size: 0.9rem;
   opacity: 0.7;
-  animation: floatUp 2s ease forwards;
-  pointer-events: none;
+  letter-spacing: 0.5px;
 }
 
-@keyframes floatUp {
-  to {
-    transform: translateY(-120px) scale(1.3);
-    opacity: 0;
-  }
+.replay {
+  margin-top: 35px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+  opacity: 0.85;
 }
 
-/* PARTICLES */
+/* Animations */
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards;
+}
+
+.delay { animation-delay: 0.3s; }
+.delay2 { animation-delay: 0.6s; }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Particles */
 #particles {
   position: fixed;
   inset: 0;
   z-index: -1;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
 }
