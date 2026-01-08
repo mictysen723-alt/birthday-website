@@ -1,55 +1,77 @@
 let index = 0;
-const slider = document.querySelector('.slider');
-const music = document.getElementById('bgMusic');
+const slider = document.querySelector(".slider");
+const music = document.getElementById("bgMusic");
 
-/* SLIDE NAV */
+/* NEXT SLIDE */
 function next(e) {
-  heartBurst(e);
-  index++;
-  slider.style.transform = `translateX(-${index * 100}vw)`;
+  heartTransition(e, () => {
+    index++;
+    slider.style.transform = `translateX(-${index * 100}vw)`;
 
-  if (index === 1) {
-    music.volume = 0;
-    music.play();
-    fadeInMusic();
-  }
+    if (index === 1) {
+      music.volume = 0;
+      music.play();
+      fadeInMusic();
+    }
+  });
 }
 
-/* ANSWERS */
-function answer(choice, e) {
-  heartBurst(e);
-  const response = document.getElementById("response");
-  const messages = {
-    1: "Even a simple yes from you means more to me than you know.",
-    2: "That certainty makes my heart feel safe.",
-    3: "Absolutely… that confidence touches me deeply.",
-    4: "Yes, like crazy ❤️ — that kind of love is rare."
-  };
-  response.textContent = messages[choice];
-  response.style.opacity = 1;
+/* FORCE GO TO FINAL SLIDE */
+function goFinal(e) {
+  heartTransition(e, () => {
+    const totalSlides = document.querySelectorAll(".slide").length;
+    index = totalSlides - 1;
+    slider.style.transform = `translateX(-${index * 100}vw)`;
+  });
 }
 
-/* INSTAGRAM REPLY */
-function reply(e) {
-  heartBurst(e);
-  window.open("https://www.instagram.com/shivam_bharti_723/", "_blank");
+/* ANSWER HEART POP */
+function answer(e) {
+  burstHearts(e.clientX, e.clientY);
 }
 
-/* HEART BURST ANIMATION */
-function heartBurst(e) {
+/* INSTAGRAM */
+function openInsta(e) {
+  heartTransition(e, () => {
+    window.open(
+      "https://www.instagram.com/shivam_bharti_723/",
+      "_blank"
+    );
+  });
+}
+
+/* HEART TRANSITION */
+function heartTransition(e, callback) {
   const x = e.clientX;
   const y = e.clientY;
 
-  for (let i = 0; i < 8; i++) {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "❤️";
-    heart.style.left = x + "px";
-    heart.style.top = y + "px";
-    heart.style.animationDelay = `${Math.random() * 0.3}s`;
-    document.body.appendChild(heart);
+  const big = document.createElement("div");
+  big.className = "big-heart";
+  big.innerHTML = "❤️";
+  big.style.left = x + "px";
+  big.style.top = y + "px";
+  document.body.appendChild(big);
 
-    setTimeout(() => heart.remove(), 1200);
+  setTimeout(() => {
+    big.remove();
+    burstHearts(x, y);
+    callback();
+  }, 900);
+}
+
+/* HEART BURST */
+function burstHearts(x, y) {
+  for (let i = 0; i < 18; i++) {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤️";
+    h.style.left = x + "px";
+    h.style.top = y + "px";
+    h.style.setProperty("--dx", `${Math.random() * 180 - 90}px`);
+    h.style.setProperty("--dy", `${Math.random() * -180}px`);
+    document.body.appendChild(h);
+
+    setTimeout(() => h.remove(), 1200);
   }
 }
 
@@ -64,9 +86,9 @@ function fadeInMusic() {
   }, 200);
 }
 
-/* PARTICLES */
-const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
+/* BACKGROUND PARTICLES */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
@@ -78,11 +100,11 @@ const dots = Array.from({ length: 40 }, () => ({
 }));
 
 function draw() {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle = 'rgba(255,255,255,0.35)';
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "rgba(255,255,255,0.35)";
   dots.forEach(p => {
     ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
     ctx.fill();
     p.y += p.d;
     if (p.y > canvas.height) p.y = 0;
